@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-14T12:07:41+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Hello world!</title><link href="http://localhost:4000/2020/06/11/hello-world/" rel="alternate" type="text/html" title="Hello world!" /><published>2020-06-11T14:04:49+05:30</published><updated>2020-06-11T14:04:49+05:30</updated><id>http://localhost:4000/2020/06/11/hello-world</id><content type="html" xml:base="http://localhost:4000/2020/06/11/hello-world/">&lt;p&gt;Welcome to WordPress. This is your first post. Edit or delete it, then start writing!&lt;/p&gt;</content><author><name>paulharan</name></author><summary type="html">Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</summary></entry><entry><title type="html">Genesys Interaction Workspace – Enable debug log</title><link href="http://localhost:4000/2017/10/12/genesys-interaction-workspace-enable-debug-log/" rel="alternate" type="text/html" title="Genesys Interaction Workspace &amp;#8211; Enable debug log" /><published>2017-10-13T01:40:17+05:30</published><updated>2017-10-13T01:40:17+05:30</updated><id>http://localhost:4000/2017/10/12/genesys-interaction-workspace-enable-debug-log</id><content type="html" xml:base="http://localhost:4000/2017/10/12/genesys-interaction-workspace-enable-debug-log/">&lt;h2 id=&quot;how-to-enable-logging-in-interaction-workspace&quot;&gt;How to enable logging in interaction workspace?&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;In Genesys interaction workspace, logging is disabled by default for security purpose. You can enable logging by setting option &lt;em&gt;&lt;strong&gt;‘security.enable-debug-information’&lt;/strong&gt;&lt;/em&gt; to &lt;em&gt;&lt;strong&gt;‘true’&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-access-interaction-workspace-logs&quot;&gt;How to access interaction workspace logs?&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;To access log folder, follow the steps below&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;From the menu bar, click  &lt;strong&gt;‘About’ &lt;/strong&gt; and select &lt;strong&gt;‘Window’&lt;/strong&gt; from drop down list&lt;/li&gt;
+  &lt;li&gt;Holding control key, click on &lt;strong&gt;‘Genesys’&lt;/strong&gt; logo&lt;/li&gt;
+  &lt;li&gt;Logo will change to 5 buttons&lt;/li&gt;
+  &lt;li&gt;Click &lt;strong&gt;‘Log folder’&lt;/strong&gt; to open logs folder in your system&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id=&quot;attachment_7094&quot; style=&quot;width: 368px&quot; class=&quot;wp-caption alignleft&quot;&gt;
+  &lt;a href=&quot;/wp-content/uploads/2017/10/Log-Folder-1.png&quot;&gt;&lt;img aria-describedby=&quot;caption-attachment-7094&quot; class=&quot;size-full wp-image-7094&quot; src=&quot;/wp-content/uploads/2017/10/Log-Folder-1.png&quot; alt=&quot;Log folder&quot; width=&quot;358&quot; height=&quot;407&quot; /&gt;&lt;/a&gt;
+  
+  &lt;p id=&quot;caption-attachment-7094&quot; class=&quot;wp-caption-text&quot;&gt;
+    Log Folder
+  &lt;/p&gt;
+&lt;/div&gt;</content><author><name>lakshmikanth</name></author></entry><entry><title type="html">Genesys URS report_targets : Why is it useful but should not use it?</title><link href="http://localhost:4000/2017/04/25/genesys-urs-report_targets-useful-not-use/" rel="alternate" type="text/html" title="Genesys URS report_targets : Why is it useful but should not use it?" /><published>2017-04-25T20:58:50+05:30</published><updated>2017-04-25T20:58:50+05:30</updated><id>http://localhost:4000/2017/04/25/genesys-urs-report_targets-useful-not-use</id><content type="html" xml:base="http://localhost:4000/2017/04/25/genesys-urs-report_targets-useful-not-use/">&lt;p&gt;In some cases, we want to understand the routing decision by URS, especially if an interaction is queued for multiple targets like agent groups. In this post, you will learn about ‘report_targets’ option, how it works and recommended way to use it in production environment.&lt;/p&gt;
+
+&lt;p&gt;From version 7.x onwards,  Genesys URS expose routing decision using key value pairs.  If enabled, URS will attach following informatio for each interaction&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt; Routing Rule, Target Group (Agent Group or Place Group), Skill Expression while waiting and after the call is routed to&lt;/li&gt;
+  &lt;li&gt;Agent&lt;/li&gt;
+  &lt;li&gt;Place&lt;/li&gt;
+  &lt;li&gt;Tenant&lt;/li&gt;
+  &lt;li&gt;Strategy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;how-to-enable-routing-decision-information&quot;&gt;How to enable routing decision information?&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;To enable routing decision information, set report_targets value to true.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;  Due to high resource usage, it is not recommended to enable this functionality in production environment.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-it-works&quot;&gt;How it works?&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;If enabled, URS attaches high level target information (Routing Rules, Skill Expressions, Agent Groups, Place Groups) while waiting.&lt;/p&gt;
+
+&lt;pre class=&quot;lang:default decode:true&quot; title=&quot;While Waiting&quot;&gt;request to 65200(TServer) message RequestAttachUserData
+    AttributeReferenceID    13
+    AttributeUserData    [34] 00 01 00 00..
+        'RTargetAgentGroup'    'VAG_Skill1'
+    AttributeConnID    006c029a6685d004
+    AttributeThisDN    '9001'
+
+&lt;/pre&gt;
+
+&lt;p&gt;[table id=9 /]&lt;/p&gt;
+
+&lt;p&gt;When the interaction is routed, URS attaches information about target object&lt;/p&gt;
+
+&lt;pre class=&quot;lang:default decode:true&quot;&gt;request to 65200(TServer) message RequestUpdateUserData
+	AttributeReferenceID	14
+	AttributeUserData	[561] 00 14 00 00..
+		'RVQID'	'SQBENM69RP39R22KR9QUBT1RQO000002'
+		'RTargetTypeSelected'	'2'
+		'RTargetRuleSelected'	''
+		'RTargetObjectSelected'	'VAG_Skill1'
+		'RTargetObjSelDBID'	'115'
+		'RTargetAgentSelected'	'agent01'
+		'RTargetPlaceSelected'	'Place_6001'
+		'RTenant'	'Resources'
+		'RStrategyName'	'Route2ChicagoAgentsLowPriority'
+		'RStrategyDBID'	'264'
+		'CBR-actual_volume'	''
+		'CBR-Interaction_cost'	''
+		'CBR-contract_DBIDs'	''
+		'CBR-IT-path_DBIDs'	''
+		'RRequestedSkillCombination'	''
+		'RRequestedSkills'(list) 
+		'RTargetRequested'	'VAG_Skill1'
+		'CustomerSegment'	'default'
+		'ServiceType'	'default'
+		'ServiceObjective'	''
+	AttributeConnID	006c029a6685d004
+	AttributeThisDN	'9001'&lt;/pre&gt;
+
+&lt;p&gt;[table id=10 /]&lt;/p&gt;
+
+&lt;h2 id=&quot;what-if-you-want-to-use-it-anyway-in-production-environment&quot;&gt;What if you want to use it anyway in production environment?&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;If you want to enable it anyway for production environment, I recommend to use ‘SetCallOption’ function and list objects configuration to enable it for particular service /interaction type.&lt;/p&gt;
+
+&lt;p&gt;For more information about ‘report_targets’ and ‘SetCallOption’ function, refer to &lt;a href=&quot;https://docs.genesys.com/Documentation&quot;&gt;Genesys URS reference manual.&lt;/a&gt;&lt;/p&gt;</content><author><name>lakshmikanth</name></author><category term="Genesys" /><category term="How to" /><category term="Tips" /></entry><entry><title type="html">How do I change my own password in Windows 2012 RDP session?</title><link href="http://localhost:4000/2016/12/18/change-password-windows-2012-rdp-session/" rel="alternate" type="text/html" title="How do I change my own password in Windows 2012 RDP session?" /><published>2016-12-19T04:03:45+05:30</published><updated>2016-12-19T04:03:45+05:30</updated><id>http://localhost:4000/2016/12/18/change-password-windows-2012-rdp-session</id><content type="html" xml:base="http://localhost:4000/2016/12/18/change-password-windows-2012-rdp-session/">&lt;p&gt;We recently migrated our servers to Windows 2012 and it doesn’t have windows security option to change your password (like in Windows 2008). In this post, I will explain two options to change password in Windows 2012 on RDP session&lt;/p&gt;
+
+&lt;h2 id=&quot;option-1--change-password-in-remote-desktop-session-rdp&quot;&gt;Option 1 : Change password in Remote Desktop Session (RDP)&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Press CTRL + ALT + END on remote session. This is equivalent to CTRL + ALT + DEL on your local machine and you will be able to change password.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;option-2-change-password-in-rdp-session-through-jump-server&quot;&gt;Option 2: Change password in RDP session through jump server&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;It is common that customer provide access to servers (For example : APPSERVER01) through jump server (Example: GATEWAYSERVER01) . In these scenarios, CTRL + ALT + END will not work as you RDP into jump server ‘GATEWAYSERVER01’ and from jump server, RDP into application server ‘APPSERVER01’. In this case, use below steps to change your password&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Press Windows Key + R and type ‘OSK’ to bring onscreen keyboard&lt;/li&gt;
+  &lt;li&gt;Press ‘CTRL’ + ‘ALT’ in your keyboard and using mouse,  press ‘DEL’ button on on-screen keyboard&lt;/li&gt;
+  &lt;li&gt;It will bring ‘Change Passsword’ option&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you know about any other options, share it in your comments&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;</content><author><name>lakshmikanth</name></author><category term="How to" /><category term="RDP" /><category term="Remote Desktop" /><category term="Tips" /><category term="Windows" /></entry><entry><title type="html">WatchDog – Tool to monitor file changes</title><link href="http://localhost:4000/2016/11/18/watchdog/" rel="alternate" type="text/html" title="WatchDog &amp;#8211; Tool to monitor file changes" /><published>2016-11-18T17:35:03+05:30</published><updated>2016-11-18T17:35:03+05:30</updated><id>http://localhost:4000/2016/11/18/watchdog</id><content type="html" xml:base="http://localhost:4000/2016/11/18/watchdog/">&lt;p&gt;&lt;strong&gt;WatchDog&lt;/strong&gt; is simple windows service application to monitor file changes and send email alerts in local server. Main purpose of the application is to alert Consultants &amp;amp; IT administrators about accidental changes in configuration files.&lt;/p&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;pre-reqs&quot;&gt;Pre-reqs:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;  .NET Framework 4.5.2&lt;/li&gt;
+  &lt;li&gt;  User with Administrator priviliges&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;installation-procedure&quot;&gt;Installation Procedure&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create folder “Watchdog” in your local drive ex: C:\WatchDog&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.dropbox.com/sh/kzbg2tbpe4oe2gh/AAAjJxwwsadxpGCe2PMpYPZaa?dl=0&quot;&gt;Download&lt;/a&gt; and copy the following files under “Watchdog”
+    &lt;ul&gt;
+      &lt;li&gt;WatchDog.exe&lt;/li&gt;
+      &lt;li&gt;WatchDog.exe.config&lt;/li&gt;
+      &lt;li&gt;FilesToWatch.cfg&lt;/li&gt;
+      &lt;li&gt;readme.txt&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Open command prompt with Administrator priviliges and navigate to “WatchDog” folder&lt;/li&gt;
+  &lt;li&gt;Type and run command WatchDog.exe install&lt;/li&gt;
+  &lt;li&gt;On successful execution, windows service “WatchDog” installed in your computer&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Download Link :&lt;/strong&gt; &lt;a href=&quot;https://www.dropbox.com/sh/kzbg2tbpe4oe2gh/AAAjJxwwsadxpGCe2PMpYPZaa?dl=0&quot;&gt;https://www.dropbox.com/sh/kzbg2tbpe4oe2gh/AAAjJxwwsadxpGCe2PMpYPZaa?dl=0&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;to-uninstall&quot;&gt;To uninstall&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Open command prompt with Administrator priviliges and navigate to “WatchDog” folder&lt;/li&gt;
+  &lt;li&gt;Type and run command WatchDog.exe uninstall&lt;/li&gt;
+  &lt;li&gt;On successful execution, windows service “WatchDog” is uninstalled in your computer&lt;/li&gt;
+  &lt;li&gt;Delete “WatchDog” folder from your computer&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;configuration-details&quot;&gt;Configuration details&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;File : WatchDog.exe.config&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;Service -&amp;gt; FlexiContact.serviceName :&lt;/strong&gt;&lt;/em&gt; Windows service name. This should be unique value in the local server. Default value: FxWatchDog&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;Service -&amp;gt; FlexiContact.serviceDisplayName:&lt;/strong&gt;&lt;/em&gt; Windows service display name. Default value: WatchDog&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;Service -&amp;gt; FlexiContact.serviceDescription: &lt;/strong&gt;&lt;/em&gt; Windows service description. Default value: Windows Service to monitor file changes&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;WatchDog.Properties.Settings -&amp;gt; smtp_host:&lt;/strong&gt;&lt;/em&gt; SMTP Server IP address or host name&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;WatchDog.Properties.Settings -&amp;gt; smtp_port:&lt;/strong&gt;&lt;/em&gt; SMTP Server port number&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;WatchDog.Properties.Settings -&amp;gt; smtp_userName:&lt;/strong&gt;&lt;/em&gt; user name for SMTP authentication. Must be configured if “smtp_useSMTPAuthentication” set to ‘True’&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;WatchDog.Properties.Settings -&amp;gt; smtp_userPassword:&lt;/strong&gt;&lt;/em&gt; user password for SMTP authentication. Must be configured if “smtp_useSMTPAuthentication” set to ‘True’&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;WatchDog.Properties.Settings -&amp;gt; smtp_fromAddress:&lt;/strong&gt;&lt;/em&gt; From Address&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;em&gt;&lt;strong&gt;WatchDog.Properties.Settings -&amp;gt; smtp_toAddress:&lt;/strong&gt;&lt;/em&gt; To Address. Use pipe delimiter to send email to multiple address. Ex: john@doe.com&lt;/td&gt;
+          &lt;td&gt;findme@johndoe.com&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;WatchDog.Properties.Settings -&amp;gt; smtp_enableSSL:&lt;/strong&gt;&lt;/em&gt; Set to ‘True’ if SMTP Server requires SSL. Valid values: TRUE, FALSE&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;WatchDog.Properties.Settings -&amp;gt; smtp_useSMTPAuthentication:&lt;/strong&gt;&lt;/em&gt; Set to ‘True’ if SMTP Server requires authentication. Valid values: TRUE, FALSE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For changes to take effect, you need to restart application/service&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;File : FilesToWatch.cfg&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Configure the folder and files to monitor for configuration changes. You need to configure each file in seperate row.&lt;/p&gt;
+
+&lt;p&gt;For example,&lt;/p&gt;
+
+&lt;pre class=&quot;lang:default decode:true &quot;&gt;&quot;C:\Temp\&quot;,&quot;*.log&quot;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“C:\Temp”    =&amp;gt; Folder&lt;/li&gt;
+  &lt;li&gt;“*.log”        =&amp;gt; File Pattern.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In this case, email alerts will be generated for any file with *.log extension in ‘C:\Temp’ folder.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;log4net.config&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;WatchDog application Apache log4net library for logging. Please refer to https://logging.apache.org/log4net/release/manual/configuration.html&lt;/p&gt;</content><author><name>lakshmikanth</name></author><category term="Alerts" /><category term="Tools" /></entry><entry><title type="html">Exporting a Genesys Routing Strategy</title><link href="http://localhost:4000/2016/07/20/exporting-genesys-routing-strategy/" rel="alternate" type="text/html" title="Exporting a Genesys Routing Strategy" /><published>2016-07-20T15:28:10+05:30</published><updated>2016-07-20T15:28:10+05:30</updated><id>http://localhost:4000/2016/07/20/exporting-genesys-routing-strategy</id><content type="html" xml:base="http://localhost:4000/2016/07/20/exporting-genesys-routing-strategy/">&lt;h3 id=&quot;export-genesys-routing-strategy-as-package&quot;&gt;Export Genesys Routing Strategy as Package&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In the Strategies List, select the name of the strategy that you want to export.&lt;/li&gt;
+  &lt;li&gt;Select Export To File from the File menu or press CTRL+E.&lt;/li&gt;
+  &lt;li&gt;The Export of strategy &lt;strategy name=&quot;&quot;&gt; dialog box opens.&lt;/strategy&gt;&lt;/li&gt;
+  &lt;li&gt;Navigate to the folder in which you want to place the strategy-moving file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; If a file with the same name as the new strategy-moving file already exists in the selected folder, the existing file is overwritten.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;From the Files of type drop-down list, select the .zcf file format&lt;/li&gt;
+  &lt;li&gt;Click Select.&lt;/li&gt;
+  &lt;li&gt;The Interaction Routing Designer message box opens, reporting on the completion of the export.&lt;/li&gt;
+  &lt;li&gt;Click OK to continue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Source:&lt;/strong&gt; Interaction Routing Designer Help Documentation&lt;/p&gt;</content><author><name>lakshmikanth</name></author><category term="Genesys" /><category term="Routing" /><category term="Tips" /></entry><entry><title type="html">Simple SFTP Server Tool for testing and development</title><link href="http://localhost:4000/2016/05/26/simple-sftp-server-tool/" rel="alternate" type="text/html" title="Simple SFTP Server Tool for testing and development" /><published>2016-05-26T22:30:58+05:30</published><updated>2016-05-26T22:30:58+05:30</updated><id>http://localhost:4000/2016/05/26/simple-sftp-server-tool</id><content type="html" xml:base="http://localhost:4000/2016/05/26/simple-sftp-server-tool/">&lt;p&gt;Here is the simple SFTP Server for lab testing purpose. It is light-weight, simple and easy to use. Like all other tools from me, just unzip and run it in your server or desktop.&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download and unzip file from dropbox &lt;a href=&quot;https://www.dropbox.com/sh/gh42x5vxaq0owdx/AAAepISi_jAOJu3Qk37zLbAqa?dl=0&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Run SFTPServer.exe&lt;/li&gt;
+  &lt;li&gt;Press ‘Start’ button to start SFTP Server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;/wp-content/uploads/2016/05/Simple-SFTPServer-1.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-6761&quot; src=&quot;/wp-content/uploads/2016/05/Simple-SFTPServer-1.png&quot; alt=&quot;Simple SFTPServer&quot; width=&quot;960&quot; height=&quot;596&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;features&quot;&gt;Features&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Easy to use simple SFTP Server&lt;/li&gt;
+  &lt;li&gt;Just unzip and run&lt;/li&gt;
+  &lt;li&gt;Requires .NET Framework 4.5.2 and runs on any windows platform&lt;/li&gt;
+  &lt;li&gt;Supports public/private key authentication (RSA Key)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;when-and-why-should-you-run-this-application&quot;&gt;When and why should you run this application?&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Mostly used for development and testing purpose. Instead of spending hours trying to setup SFTP Server and users,  you can run this application locally.&lt;/p&gt;</content><author><name>lakshmikanth</name></author><category term="How to" /><category term="SFTP" /><category term="Tools" /></entry><entry><title type="html">Automaton – IT Process Automation</title><link href="http://localhost:4000/2016/05/25/automaton/" rel="alternate" type="text/html" title="Automaton &amp;#8211; IT Process Automation" /><published>2016-05-25T18:24:34+05:30</published><updated>2016-05-25T18:24:34+05:30</updated><id>http://localhost:4000/2016/05/25/automaton</id><content type="html" xml:base="http://localhost:4000/2016/05/25/automaton/">&lt;h2 id=&quot;what-is-automaton&quot;&gt;What is Automaton?&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Automaton is simple, light-weight application to automate IT processes. Using this application, you can automate many processes – Directory &amp;amp; File Operations, Database, Genesys Health Check, Genesys Campaign Management, Genesys List Management, FTP, FTPS, SFTP, Email &amp;amp; SMS notifications and many more.&lt;/p&gt;
+
+&lt;h2 id=&quot;brief-history&quot;&gt;Brief History&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;In our company meeting last year, we decided to focus on our core activities and outsource our internal process as much as we can. After few months, we realized that outsourcing helped us to move little bit faster but not as much as we thought will be. We sooner found that most of the process can be automated and self-serviced and started as internal tool development for us.&lt;/p&gt;
+
+&lt;p&gt;Although, it started as internal project, we can actually see that Automaton can be used by our customers as well and Automaton was started in Sep 2015.&lt;/p&gt;
+
+&lt;h2 id=&quot;key-benefits&quot;&gt;Key Benefits&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Quick and easy implementation.Helps business to address market and customer needs in efficient manner&lt;/li&gt;
+  &lt;li&gt;Reduce incident response and resolution time&lt;/li&gt;
+  &lt;li&gt;Cuts cost of service operations&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;design-principles&quot;&gt;Design Principles&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;From the beginning, we know that Automaton have to be open for extension as each customer will have different set of requirements to automate process and hence, we designed Automaton to be opened for extension i.e.) to add more functionality without modifying core application.&lt;/p&gt;
+
+&lt;h3 id=&quot;-and-reports&quot;&gt;&lt;span style=&quot;color: #3366ff;&quot;&gt;&lt;em&gt;…. And Reports&lt;/em&gt;&lt;/span&gt;&lt;/h3&gt;
+
+&lt;p&gt;As tasks will be automated, we understood that we need effective way of monitoring the tasks and hence, developed real time and historical reporting solution. Unlike traditional reporting, we want user to customize/apply filters on existing report and export them in PDF or Excel format. I will cover more details about this later&lt;/p&gt;
+
+&lt;h3 id=&quot;-and-failover&quot;&gt;&lt;span style=&quot;color: #3366ff;&quot;&gt;&lt;em&gt;… And Failover&lt;/em&gt;&lt;/span&gt;&lt;/h3&gt;
+
+&lt;p&gt;We built active-active failover functionality for this application. For Genesys related deployments, it can be integrated directly with the framework so that each instance can be monitored using SCI or Genesys Administrator and user can configure alarms for log messages.&lt;/p&gt;
+
+&lt;h2 id=&quot;some-sample-tasks&quot;&gt;Some sample tasks&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Automate FTP/FTPS/SFTP download and upload
+    &lt;ul&gt;
+      &lt;li&gt;supports public/private key authentication, Kerberos, X-509, NTLM authentication types. I can safely say 100% of FTP/SFTP operations used in enterprises&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Monitor application or windows service. Send email or sms alert if application stopped&lt;/li&gt;
+  &lt;li&gt;File Operations – Copy, Move or Delete files, Zip and Archive files&lt;/li&gt;
+  &lt;li&gt;Database – Import and Export data from Oracle, MS SQL and My SQL&lt;/li&gt;
+  &lt;li&gt;Genesys – Configuration backup (hourly/daily or custom schedule), Health Check (hourly/daily or custom schedule)&lt;/li&gt;
+  &lt;li&gt;Genesys Outbound
+    &lt;ul&gt;
+      &lt;li&gt;Campaign Management – Schedule start and stop timings&lt;/li&gt;
+      &lt;li&gt;Calling List Management – Import, Export and Purge calling list data&lt;/li&gt;
+      &lt;li&gt;Do not call list – Import, Export and Purge calling list data&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;you-are-invited&quot;&gt;You are invited&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We are planning to officially release this product in July this year and you are invited to join the beta program of this launch.&lt;/p&gt;
+
+&lt;p&gt;As a early bird user, you will get full version of the software and support free of cost. We expect you to receive your feedback and suggestions every week and it may take only 15 to 30 minutes of your time.&lt;/p&gt;
+
+&lt;p&gt;If you are interested, please contact me by leaving a comment or email me at beta@flexicontact.com&lt;/p&gt;
+
+&lt;p&gt;Looking forward to work with you and hope, it will be good opportunity to network with other members as well 🙂&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It will be exclusive group of members and will be limited to 5 members only&lt;/li&gt;
+  &lt;li&gt;We will do installation, configuration and training free of cost to these members.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>lakshmikanth</name></author><category term="Automation" /><category term="Automaton" /><category term="Genesys" /><category term="Outbound" /></entry><entry><title type="html">Genesys : How EWT – Estimate Wait Time is calculated?</title><link href="http://localhost:4000/2016/05/20/genesys-ewt-estimate-wait-time-calculated/" rel="alternate" type="text/html" title="Genesys : How EWT &amp;#8211; Estimate Wait Time is calculated?" /><published>2016-05-20T17:10:35+05:30</published><updated>2016-05-20T17:10:35+05:30</updated><id>http://localhost:4000/2016/05/20/genesys-ewt-estimate-wait-time-calculated</id><content type="html" xml:base="http://localhost:4000/2016/05/20/genesys-ewt-estimate-wait-time-calculated/">&lt;p&gt;As we all know, agent can handle calls from multiple queues in Genesys and is tricky to find EWT (Estimate Wait Time) for call during routing. I find that Genesys algorithm to be smart and most appropriate.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-it-is-calculated&quot;&gt;How it is calculated?&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Please find the details below (from Stat Server deployment guide)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Estimated Wait Time (EWT) =  AHT * ( CIQU / (AA * EP))&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;where&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;AHT (Average Handle Time)&lt;/strong&gt; is calculated as &lt;strong&gt;TotalTime(Mask1, Interval)/TotalNumber(Mask2, Interval)&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Mask1 includes ACW time i.e. &lt;em&gt;CallReleased, ACWCompleted, CallMissed, ACWMissed&lt;/em&gt; events are used for calculation.&lt;/li&gt;
+      &lt;li&gt;Mask2 is for call i.e.) &lt;em&gt;CallReleased&lt;/em&gt; and &lt;em&gt;CallMissed&lt;/em&gt; events only&lt;/li&gt;
+      &lt;li&gt;If no calls are handled by agent for this queue, AHT is assumed to be 90 seconds&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CIQU (Calls in Queue Unassigned) –&lt;/strong&gt; Calls waiting in queue (CIQ) waiting for agent
+    &lt;ul&gt;
+      &lt;li&gt;CIQU = 0 if agents in ready state (AR) &amp;gt; CIQ&lt;/li&gt;
+      &lt;li&gt;CIQU = CIQ if no agents are currently ready&lt;/li&gt;
+      &lt;li&gt;CIQU = CIQ – AR if some agents are in ready state&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;AA (Active Agents)&lt;/strong&gt; – Agent logged in and is busy or not ready to take calls. If AA = 0, 0.0001 is used&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;EP (Effective Portion) –&lt;/strong&gt; Total time spent by agent to process calls from the queue divided by total time spent by agent to process all calls. Default value : 1&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>lakshmikanth</name></author><category term="Genesys" /><category term="How to" /><category term="Routing" /></entry><entry><title type="html">Genesys CCPulse – Display UserData using Custom Stat and Filters</title><link href="http://localhost:4000/2016/04/05/display-userdata-ccpulse/" rel="alternate" type="text/html" title="Genesys CCPulse &amp;#8211; Display UserData using Custom Stat and Filters" /><published>2016-04-05T20:33:53+05:30</published><updated>2016-04-05T20:33:53+05:30</updated><id>http://localhost:4000/2016/04/05/display-userdata-ccpulse</id><content type="html" xml:base="http://localhost:4000/2016/04/05/display-userdata-ccpulse/">&lt;p&gt;Previously, I wrote post about &lt;a href=&quot;http://www.lakshmikanth.com/genesys-ccpulse-show-user-data/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;displaying user data in CCPulse using custom solution&lt;/a&gt; and user ‘&lt;span class=&quot;post-byline&quot;&gt;&lt;span class=&quot;author publisher-anchor-color&quot;&gt;&lt;a href=&quot;https://disqus.com/by/moshelezerovitz/&quot; data-action=&quot;profile&quot; data-username=&quot;moshelezerovitz&quot; data-role=&quot;username&quot;&gt;Moshe Lezerovitz&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;‘ enquired about displaying user data using CCPulse application only.&lt;/p&gt;
+
+&lt;p&gt;I found two options to display user data in CCPulse&lt;/p&gt;
+
+&lt;h3 id=&quot;option-1-display-user-data-using-custom-stat&quot;&gt;Option 1: Display User Data using Custom Stat&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1:&lt;/strong&gt; Configure Custom Statistic as below&lt;/p&gt;
+
+&lt;p&gt;&lt;span id=&quot;j_id0:j_id8&quot;&gt;&lt;span id=&quot;j_id0:j_id8:j_id9:j_id253:j_id255:0:j_id256:j_id257&quot;&gt;[CustomUserData]&lt;br /&gt; Category = CurrentCustomValue&lt;br /&gt; Formula = GetGlobalNumber(“Account”,-1)”&lt;br /&gt; MainMask = *&lt;br /&gt; Objects = Agent, Place, GroupAgents, GroupPlaces&lt;br /&gt; Subject = DNAction&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;In CCPulse, configure template to display this custom statistic. Please note that this will work only if key value is numeric. To display string value, use option 2 below&lt;/p&gt;
+
+&lt;h3 id=&quot;option-2-display-user-data-using-filters&quot;&gt;Option 2: Display User Data using Filters&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;You need CCPulse 8.0.101.27 or higher to display user data using filters.&lt;span id=&quot;j_id0:j_id8&quot;&gt;&lt;span id=&quot;j_id0:j_id8:j_id9:j_id253:j_id255:6:j_id256:j_id257&quot;&gt;&lt;span id=&quot;j_id0:j_id1:j_id3:j_id5:j_id12:j_id14&quot;&gt; Please find the CCPulse release notes below&lt;br /&gt; &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;span id=&quot;j_id0:j_id8&quot;&gt;&lt;span id=&quot;j_id0:j_id8:j_id9:j_id253:j_id255:6:j_id256:j_id257&quot;&gt;&lt;span id=&quot;j_id0:j_id1:j_id3:j_id5:j_id12:j_id14&quot;&gt;CCPulse+ now displays by default only hardware or software reason codes, without User Data. A new CCPulse+ option, ReasonCodeData, in the [CustomStatistic] section enables you to control which values are displayed.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ReasonCodeData&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Valid Values: Hardware; Software; Userdata&lt;br /&gt;
+Separate with semicolons the values to be displayed. Enter all three values if you use User Data values with reason codes in Formulas or to display them in the Extended Status window or in a view.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;[CustomStatistic]&lt;/em&gt;&lt;br /&gt;
+ &lt;em&gt;ReasonCodeData=Userdata (optional values: Hardware; Software)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Previously, starting with release 8.0.000.41, CCPulse+ appended some values from User Data to the reason codes. (ER# 317914454)&lt;/p&gt;
+
+&lt;p&gt;To display user data &lt;strong&gt;‘Account’,&lt;/strong&gt; follow steps below&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1:&lt;/strong&gt; Create Filter ‘Account = PairExist(“Account”, “*”) under [Filters] section in Stat Server&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt; Create statistical type [CustomAgentState] in Stat Server as below&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;[CustomAgentState]&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;span id=&quot;j_id0:j_id8&quot;&gt;&lt;span id=&quot;j_id0:j_id8:j_id9:j_id253:j_id255:5:j_id256:j_id257&quot;&gt;Category=CurrentState&lt;br /&gt; MainMask=*&lt;br /&gt; Objects=Agent&lt;br /&gt; Subject=DNAction&lt;/span&gt;&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Step 3: Set CCPulse application options, set ‘ExtendedCurrentStatus’ to ‘true under [CustomStatistic]&lt;/p&gt;
+
+&lt;p&gt;Step 4: Add below formula to display&lt;/p&gt;
+
+&lt;pre class=&quot;lang:js decode:true&quot; title=&quot;Formula&quot;&gt;result.Text = state.type == &quot;AgentState&quot; ? GetUserData() : &quot;&quot;;
+function GetUserData()
+{
+var data = &quot;&quot;;
+for(var e = new Enumerator(state.CallData.Filter(&quot;Key=Account&quot;)); !e.atEnd(); e.moveNext())
+  { if (e.item().Key=='Account')
+      data = e.item().Value;
+   }
+   return data;
+}&lt;/pre&gt;
+
+&lt;p&gt;&lt;span id=&quot;j_id0:j_id8&quot;&gt;&lt;span id=&quot;j_id0:j_id8:j_id9:j_id253:j_id255:5:j_id256:j_id257&quot;&gt; &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;</content><author><name>lakshmikanth</name></author><category term="CCPulse" /><category term="Custom Statistic" /><category term="Formula" /><category term="Genesys" /></entry></feed>

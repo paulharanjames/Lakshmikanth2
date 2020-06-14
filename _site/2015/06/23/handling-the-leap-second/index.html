@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Handling the leap second | Your awesome title</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Handling the leap second" />
+<meta name="author" content="lakshmikanth" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<link rel="canonical" href="http://localhost:4000/2015/06/23/handling-the-leap-second/" />
+<meta property="og:url" content="http://localhost:4000/2015/06/23/handling-the-leap-second/" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-06-23T14:20:46+05:30" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2015/06/23/handling-the-leap-second/"},"@type":"BlogPosting","url":"http://localhost:4000/2015/06/23/handling-the-leap-second/","headline":"Handling the leap second","dateModified":"2015-06-23T14:20:46+05:30","datePublished":"2015-06-23T14:20:46+05:30","author":{"@type":"Person","name":"lakshmikanth"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a><a class="page-link" href="/books.html">Books</a><a class="page-link" href="/cloud-computing.html">Cloud Computing,What is it?</a><a class="page-link" href="/downloads.html">Downloads</a><a class="page-link" href="/genesys-main.html">Genesys</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Handling the leap second</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2015-06-23T14:20:46+05:30" itemprop="datePublished">Jun 23, 2015
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">lakshmikanth</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3 id="leap-second--what-is-it">Leap Second – What is it?</h3>
+
+<hr />
+
+<p>From wiki</p>
+
+<blockquote>
+  <p><em>A <strong>leap second</strong> is a one-<a href="https://en.wikipedia.org/wiki/Second" title="Second">second</a> adjustment that is occasionally applied to <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time" title="Coordinated Universal Time">Coordinated Universal Time</a> (UTC) in order to keep its time of day close to the <a href="https://en.wikipedia.org/wiki/Mean_solar_time" title="Mean solar time">mean solar time</a>{.mw-redirect}, or <a href="https://en.wikipedia.org/wiki/UT1" title="UT1">UT1</a>{.mw-redirect}. Without such a correction, time reckoned by <a href="https://en.wikipedia.org/wiki/Earth%27s_rotation" title="Earth's rotation">Earth’s rotation</a> drifts away from <a href="https://en.wikipedia.org/wiki/Atomic_time" title="Atomic time">atomic time</a>{.mw-redirect} because of <a href="https://en.wikipedia.org/wiki/Earth_rotation#Changes_in_rotation" title="Earth rotation">irregularities</a>{.mw-redirect} in the Earth’s rate of rotation.</em></p>
+</blockquote>
+
+<div id="attachment_5621" style="width: 401px" class="wp-caption aligncenter">
+  <a href="http://localhost/newlakshmikanth3/wp-content/uploads/2015/06/2015-06-23_10-22-36.png"><img aria-describedby="caption-attachment-5621" class="size-full wp-image-5621" src="http://localhost/newlakshmikanth3/wp-content/uploads/2015/06/2015-06-23_10-22-36.png" alt="Leap Time" width="391" height="161" srcset="http://localhost/newlakshmikanth3/wp-content/uploads/2015/06/2015-06-23_10-22-36.png 391w, http://localhost/newlakshmikanth3/wp-content/uploads/2015/06/2015-06-23_10-22-36-300x124.png 300w" sizes="(max-width: 391px) 100vw, 391px" /></a>
+  
+  <p id="caption-attachment-5621" class="wp-caption-text">
+    Leap Time Jun 30 2015
+  </p>
+</div>
+
+<p>We will have leap second on Jun 30th this year and it means that this year the last minute of June 30th will be one second longer and “June 30, 2015 23:59:60″ will be a valid and correct time. There may be few issues caused by leap second and below is the summary of my findings</p>
+
+<h3 id="genesys">Genesys</h3>
+
+<hr />
+
+<p>There will be minor issues on reporting products and can be fixed by adjusting time through NTP. I suggest to synchronize time on server on 01 July 2015 01:00 hours on all Genesys Servers.</p>
+
+<h3 id="operating-system-windows-ibm-aix-and-redhat-linux">Operating System (Windows, IBM AIX and Redhat LInux)</h3>
+
+<hr />
+
+<p>Microsoft (<a href="http://blogs.msdn.com/b/mthree/archive/2012/07/01/leap-second-070112.aspx">http://blogs.msdn.com/b/mthree/archive/2012/07/01/leap-second-070112.aspx</a>) and IBM (<a href="http://www-01.ibm.com/support/docview.wss?uid=isg3T1022057">http://www-01.ibm.com/support/docview.wss?uid=isg3T1022057</a>) confirmed that there will not be any issues.</p>
+
+<p>Red hat linux is impacted by leap second and fix is available for this. More details can be found at <a href="https://access.redhat.com/articles/15145">https://access.redhat.com/articles/15145</a></p>
+
+<h3 id="databases-oracle-and-sql-server">Databases (Oracle and SQL Server)</h3>
+
+<hr />
+
+<ul>
+  <li>SQL Server – No impact as it receives time from Windows</li>
+  <li>Oracle – Oracle notes that there may be multiple issues (System Hang, 100% CPU utilization etc) on LInux environment (<a href="https://blogs.oracle.com/oem/entry/oracle_support_note_for_leap">https://blogs.oracle.com/oem/entry/oracle_support_note_for_leap</a>). Refer to the above link for MOS note to fix this issue in your environment</li>
+</ul>
+
+  </div><a class="u-url" href="/2015/06/23/handling-the-leap-second/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

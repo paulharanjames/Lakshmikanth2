@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Tuning Call Progress Analysis (CPA) templates for Dialogic® JCT, DM3 and Host Media Processing (HMP)-based boards | Your awesome title</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Tuning Call Progress Analysis (CPA) templates for Dialogic® JCT, DM3 and Host Media Processing (HMP)-based boards" />
+<meta name="author" content="lakshmikanth" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<link rel="canonical" href="http://localhost:4000/2009/10/26/tuning-call-progress-analysis-cpa-templates-for-dialogic-jct-dm3-and-host-media-processing-hmp-based-boards/" />
+<meta property="og:url" content="http://localhost:4000/2009/10/26/tuning-call-progress-analysis-cpa-templates-for-dialogic-jct-dm3-and-host-media-processing-hmp-based-boards/" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2009-10-26T17:29:00+05:30" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2009/10/26/tuning-call-progress-analysis-cpa-templates-for-dialogic-jct-dm3-and-host-media-processing-hmp-based-boards/"},"@type":"BlogPosting","url":"http://localhost:4000/2009/10/26/tuning-call-progress-analysis-cpa-templates-for-dialogic-jct-dm3-and-host-media-processing-hmp-based-boards/","headline":"Tuning Call Progress Analysis (CPA) templates for Dialogic® JCT, DM3 and Host Media Processing (HMP)-based boards","dateModified":"2009-10-26T17:29:00+05:30","datePublished":"2009-10-26T17:29:00+05:30","author":{"@type":"Person","name":"lakshmikanth"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a><a class="page-link" href="/books.html">Books</a><a class="page-link" href="/cloud-computing.html">Cloud Computing,What is it?</a><a class="page-link" href="/downloads.html">Downloads</a><a class="page-link" href="/genesys-main.html">Genesys</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Tuning Call Progress Analysis (CPA) templates for Dialogic® JCT, DM3 and Host Media Processing (HMP)-based boards</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2009-10-26T17:29:00+05:30" itemprop="datePublished">Oct 26, 2009
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">lakshmikanth</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h5 id="reference-httpwwwdialogiccomsupporthelpwebdxalltn924aspx">Reference: <a href="http://www.dialogic.com/support/helpweb/dxall/tn924.aspx" title="http://www.dialogic.com/support/helpweb/dxall/tn924.aspx">http://www.dialogic.com/support/helpweb/dxall/tn924.aspx</a></h5>
+
+<p><strong>Summary:</strong><br />
+This technote provides instructions for modifying the Positive Answering Machine Detection (PAMD) and Positive Voice Detection (PVD) qualification template parameters on Dialogic® Springware, DM3 and Host Media Processing (HMP)-based boards in seeking higher successful PAMD and PVD rates.</p>
+
+<p><strong>Overview:</strong><br />
+Call Progress Analysis (CPA) is the process used to automatically detect whether an answering machine or live voice answered a call. Dialogic® products have the ability to detect these conditions with audio streams that can come over a Public Switched Telephone Network (PSTN) connection or IP connection. Positive Answering Machine Detection (PAMD) and Positive Voice Detection (PVD) are classifications of the Call Progress Analysis feature that enable the application to determine whether a call has been answered by an answering machine or a live person.<br />
+The original PAMD and PVD algorithms take into account variables such as the length of the greeting and the background noise level. The current business and home environments have significantly shifted from analog to digital / IP phones so that the original algorithms no longer produce satisfactory results. This technote provides instructions for modifying the PAMD and PVD qualification template parameters on Dialogic® Springware, DM3 and Host Media Processing (HMP)-boards to help accomplish higher successful PAMD and PVD rates. The same procedure can be followed for Windows® and Linux service releases as well as the dx_dial or GlobalCall method of initiating Call Progress.<br />
+<em>**</em></p>
+
+<p><strong>Qualification Templates:</strong><br />
+The Call Progress Qualification Templates are a set of parameter definitions that control voice and answering machine detection. The same parameters are present in Dialogic® product lines including Springware, DM3, HMP-based boards and control detections regardless of using the DX or GC method. The Qualification Templates are broken down into two sections: PVD and PAMD. Tables 1 and 2 below contain all the parameters for both PVD and PAMD sections as well as the default and recommended values for each parameter. (Note: default values may change with new Service Updates. Always check System Release Update Guide for more information).</p>
+
+<p><a href="http://ctiworld.files.wordpress.com/2009/10/image.png"><img title="image" border="0" alt="image" src="http://ctiworld.files.wordpress.com/2009/10/image_thumb.png" width="287" height="595" /></a> &lt;/p&gt;</p>
+
+<p><strong>Modifying Qualification Templates Dialogic Springware:</strong><br />
+When using a Dialogic® Springware board, PVD and PAMD qualification template modifications are only available via an undocumented API and can be modified without restarting the Dialogic service. In addition, qualification template settings are reset to the defaults each time the Dialogic service is restarted. Thus, it is required that any modifications be done upon application initialization.<br />
+There are two undocumented functions that can be used to view and modify the PVD and PAMD qualification template parameters: dx_setqualtmplate and dx_getqualtmplate. To set the parameter values of the PVD and PAMD templates a data structure needs to be created with the values from Tables 1 and 2 above. Pass each of the qualification data structures to the dx_setqualtmplate function with the voice board device and template ID. <strong>NOTE: The dx_setqualtmplate and dx_getqualtmplate functions are both undocumented API’s and should be used at your own risk – Dialogic may change or remove the usage of these API’s without written notice.</strong></p>
+
+<blockquote>
+  <p>tn_qlt.pvd_qual.qminsnr = qminsnr;<br />
+tn_qlt.pvd_qual.qmaxsnr = qmaxsnr;<br />
+tn_qlt.pvd_qual.maxpk = maxpk;<br />
+tn_qlt.pvd_qual.maxring = maxring;<br />
+tn_qlt.pvd_qual.ringthres = ringthres;<br />
+tn_qlt.pvd_qual.pvdwin = pvdwin;<br />
+tn_qlt.pvd_qual.pvdthresh = pvdthresh;<br />
+tn_qlt.pvd_qual.pvdrblow = pvdrblow;<br />
+tn_qlt.pvd_qual.pvdrbhig = pvdrbhig;<br />
+tn_qlt.amd_qual.maxansiz = maxansiz;<br />
+tn_qlt.amd_qual.maxans2 = maxans2;<br />
+tn_qlt.amd_qual.maxans3 = maxans3;<br />
+tn_qlt.amd_qual.lohiss = lohiss;<br />
+tn_qlt.amd_qual.hihiss = hihiss;<br />
+tn_qlt.amd_qual.bhparm = bhparm;<br />
+tn_qlt.amd_qual.cvthr1 = cvthr1;<br />
+tn_qlt.amd_qual.cvthr2 = cvthr2;<br />
+tn_qlt.amd_qual.maxcvth = maxcvth;<br />
+tn_qlt.amd_qual.nmaxbrod = nmaxbrod;<br />
+tn_qlt.amd_qual.nmaxerg = nmaxerg;<br />
+tn_qlt.amd_qual.maxsil = maxsil;<br />
+tn_qlt.amd_qual.voice_thres = voice_thres;<br />
+tn_qlt.amd_qual.sil_thres = sil_thres;<br />
+tn_qlt.amd_qual.bandf_low = bandf_low;<br />
+tn_qlt.amd_qual.bandf_high = bandf_high;<br />
+dx_setqualtmplate(dev, qual_template, &amp;tn_qlt)<br />
+dx_getqualtmplate(dev, qual_template, &amp;tn_qlt)<br />
+where…<br />
+dev – voice board device handle (dxxxB1)<br />
+qual_template – qualification template ID- PVD (5) or PAMD (11)<br />
+tn_qlt – pointer to the qualification template data structure</p>
+</blockquote>
+
+<p>Please see attached <a href="http://www.dialogic.com/support/helpweb/dxall/tn924/qual.c">QUAL.C source code</a> for complete usage.<br />
+<strong>DM3:</strong><br />
+When using a Dialogic® DM3 board, all PVD and PAMD qualification template modifications are ONLY available via config files and can NOT be modified without restarting the Dialogic® service. The following steps will be used to modify DM3 qualification templates:</p>
+
+<ol>
+  <li>As a precaution, save a backup copy of the fcd, pcd and config files which you will be editing</li>
+  <li>Scroll down to the bottom of the .config file to the [sigDet] section that begins with “!GENERIC QUAL TEMPLATE – For R4 User Defined Tones. <strong>Note: There are several [sigDet] sections in the .config file so be sure to find the correct one.</strong></li>
+  <li>Add “init iNNN” immediately below the [sigDet] line where iNNN is the following: Voice Channels iNNN<br />
+    E1 – 60 Voice Channels i60<br />
+    E1 – 120 Voice Channels i120<br />
+    T1 – 48 Voice Channels i48<br />
+    T1 – 96 Voice Channels I96</li>
+  <li>Scroll down to the bottom of the [sigDet] section, and add “DeletePvd 128193”. The number represents the default PVD qualification ID defined for DM3 boards.</li>
+  <li>On the next line, add the new PVD qualification template parameters followed by “CreatePvd”.</li>
+  <li>On the next line, add “DeletePamd 106561”. The number represents the default PAMD qualification ID defined for Dialogic® DM3 boards.</li>
+  <li>
+    <p>On the next line, add the new PAMD qualification template parameters followed by “CreatePamd”. <br />
+    &gt; [sigDet]<br />
+    &gt; init i96<br />
+    &gt; !Delete the default PVD qualification template<br />
+    &gt; DeletePvd 128193<br />
+    &gt; !User defined Pvd template.<br />
+    &gt; PvdDesc signalId 128193<br />
+    &gt; PvdDesc signalLabel 0000<br />
+    &gt; PvdDesc minSnr 50<br />
+    &gt; PvdDesc maxSnr 600<br />
+    &gt; PvdDesc maxPk 2<br />
+    &gt; PvdDesc maxRing 5<br />
+    &gt; PvdDesc ringThresh 10000<br />
+    &gt; PvdDesc PvdWin 8<br />
+    &gt; PvdDesc PvdVthresh 5000<br />
+    &gt; PvdDesc PvdRbLow 380<br />
+    &gt; PvdDesc PvdRbHigh 510<br />
+    &gt; CreatePvd<br />
+    &gt; !Delete the default PAMD qualification template<br />
+    &gt; DeletePamd 106561<br />
+    &gt; !User defined PAMD template.<br />
+    &gt; PamdDesc signalId 106561<br />
+    &gt; PamdDesc signalLabel 0000<br />
+    &gt; PamdDesc minRing 190<br />
+    &gt; PamdDesc mask 1<br />
+    &gt; PamdDesc maxAnsiz1 159<br />
+    &gt; PamdDesc maxAnsiz2 159<br />
+    &gt; PamdDesc maxAnsiz3 159<br />
+    &gt; PamdDesc loHiss 22<br />
+    &gt; PamdDesc hiHiss 16<br />
+    &gt; PamdDesc bhParm 5<br />
+    &gt; PamdDesc cvThresh1 80<br />
+    &gt; PamdDesc cvThresh2 165<br />
+    &gt; PamdDesc maxCvThresh 390<br />
+    &gt; PamdDesc nMaxBroad 2<br />
+    &gt; PamdDesc nMaxErg 65<br />
+    &gt; PamdDesc maxSilence 45<br />
+    &gt; PamdDesc voiceThresh 25<br />
+    &gt; PamdDesc silenceThresh 5000<br />
+    &gt; PamdDesc rjFbandLow 0<br />
+    &gt; PamdDesc rjFbandHigh 0<br />
+    &gt; CreatePamd</p>
+  </li>
+  <li>Save changes to the .config file and exit text editor.</li>
+  <li>Using a text editor, open the .pcd file corresponding to the .config file you just modified.</li>
+  <li>Scroll down to the [COMP sigdet] section and change the InitOption value from YES to NO. The section should be revised as follows:<br />
+    &gt; [COMP sigdet]<br />
+    &gt; { 
+    &gt; 
+    &gt; &gt; Attribute :std_ComponentType:0x07<br />
+    &gt; &gt; NumInstances :96<br />
+    &gt; &gt; StartInstanceNum :1<br />
+    &gt; &gt; ConfigOption :YES<br />
+    &gt; &gt; InitOption :NO                     &lt;-–-–-—- Change from YES to NO<br />
+    &gt; &gt; DependentComp :waveAnalyser
+    &gt; 
+    &gt; }</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>**Note: NumInstances will vary depending on the board in use. In this example, the value reflects a T1 board with 96 channels.** &lt;/li&gt; 
+
+  * Save your changes to the .pcd file and run the fcdgen utility to create an fcd file:  
+    fcdgen filename.config 
+  * Restart DCM for changes to take effect  
+    Please see attached [DM3 Config File](http://www.dialogic.com/support/helpweb/dxall/tn924/ml2_qsa_ni2.config.txt) for complete template changes. &lt;/ol&gt; 
+
+**Host Media Processing (HMP):**  
+When using Dialogic® HMP-based boards (i.e., Dialogic® based on or otherwise incorporating Dialogic® HMP software), all PVD and PAMD qualification template modifications are ONLY available via config files and can NOT be modified without restarting the Dialogic® service. The following steps will be used to modify HMP qualification templates:  
+**Note:** 4r4v4e4c4s4f4i\_hib\_pur pcd/fcd/config file will be used as an example in this procedure. Your pcd/fcd/config file names likely will change based on license and system release used. 
+
+  1. As a precaution, save a backup copy of the fcd, pcd and config files which you will be editing 
+  2. Open the Host&amp;#8217;s PCD file (4r4v4e4c4s4f4i\_hib\_pur.pcd) and search for &amp;#8220;COMP sigdet&amp;#8221; 
+  3. Once you&amp;#8217;ve found this section change the InitOption from YES to NO 
+  4. Also, while here note the NumInstances, you will need to reference this in the config file.  
+    &gt; [COMP sigdet]  
+    &gt; { 
+    &gt; 
+    &gt; &gt; Attribute :std_ComponentType:0x07  
+    &gt; &gt; NumInstances :4                      &lt;\---\---\---\----Note this value  
+    &gt; &gt; StartInstanceNum :1  
+    &gt; &gt; ConfigOption :YES  
+    &gt; &gt; InitOption :NO                           &lt;\---\---\----- Change from YES to NO  
+    &gt; &gt; DependentComp :waveAnalyser
+    &gt; 
+    &gt; }
+
+  5. Save and exit the PCD file and open the hosts config file (4r4v4e4c4s4f4i\_hib\_pur.config) 
+  6. Search for the &amp;#8220;[sigDet]&amp;#8221; section of the config file &amp;#8211; if the section does not exist add it at the bottom of the config file 
+  7. Add &amp;#8220;init iNNN” immediately below the [sigDet] line where iNNN is the NumInstances noted in the pcd file 
+  8. On the next line add “DeletePvd 128193”. The number represents the default PVD qualification ID defined for HMP. 
+  9. On the next line, add the new PVD qualification template parameters followed by &amp;#8220;CreatePvd&amp;#8221;. 
+ 10. On the next line, add “DeletePamd 106561”. The number represents the default PAMD qualification ID defined for HMP. 
+ 11. On the next line, add the new PAMD qualification template parameters followed by &amp;#8220;CreatePamd&amp;#8221;.  
+    &gt; [sigDet]  
+    &gt; init i4  
+    &gt; !Delete the default PVD qualification template  
+    &gt; DeletePvd 128193  
+    &gt; !User defined Pvd template.  
+    &gt; PvdDesc signalId 128193  
+    &gt; PvdDesc signalLabel 0000  
+    &gt; PvdDesc minSnr 50  
+    &gt; PvdDesc maxSnr 600  
+    &gt; PvdDesc maxPk 2  
+    &gt; PvdDesc maxRing 5  
+    &gt; PvdDesc ringThresh 10000  
+    &gt; PvdDesc PvdWin 8  
+    &gt; PvdDesc PvdVthresh 5000  
+    &gt; PvdDesc PvdRbLow 380  
+    &gt; PvdDesc PvdRbHigh 510  
+    &gt; CreatePvd  
+    &gt; !Delete the default PAMD qualification template  
+    &gt; DeletePamd 106561  
+    &gt; !User defined PAMD template.  
+    &gt; PamdDesc signalId 106561  
+    &gt; PamdDesc signalLabel 0000  
+    &gt; PamdDesc minRing 190  
+    &gt; PamdDesc mask 1  
+    &gt; PamdDesc maxAnsiz1 159  
+    &gt; PamdDesc maxAnsiz2 159  
+    &gt; PamdDesc maxAnsiz3 159  
+    &gt; PamdDesc loHiss 22  
+    &gt; PamdDesc hiHiss 16  
+    &gt; PamdDesc bhParm 5  
+    &gt; PamdDesc cvThresh1 80  
+    &gt; PamdDesc cvThresh2 165  
+    &gt; PamdDesc maxCvThresh 390  
+    &gt; PamdDesc nMaxBroad 2  
+    &gt; PamdDesc nMaxErg 65  
+    &gt; PamdDesc maxSilence 45  
+    &gt; PamdDesc voiceThresh 25  
+    &gt; PamdDesc silenceThresh 5000  
+    &gt; PamdDesc rjFbandLow 0  
+    &gt; PamdDesc rjFbandHigh 0  
+    &gt; CreatePamd
+
+ 12. Save and exit the config file and run the fcdgen utiltiy to create an fcd file:  fcdgen 4r4v4e4c4s4f4i\_hib\_pur.config 
+ 13. Restart the Dialogic HMP services. 
+
+Please see attached config file [HMP Config File](http://www.dialogic.com/support/helpweb/dxall/tn924/4r4v4e4c4s4f4i_hib_pur.config.txt) for completed template changes.  
+**Related Documentation:**  
+It is also recommended to review the application note: [Call Progress Analysis: Global Call API Usage and Protocol Configuration](http://www.dialogic.com/network/csp/appnots/10117_CPA_SR6_HMP2.pdf)  
+**Glossary of Acronyms and Terms:**  
+Global Call CPA — Global Call API function calls perform CPA using an attached voice device and report CPA results via the GCEV\_MEDIADETECTED and GCEV\_DISCONNECTED events.   
+Voice API CPA — The Voice API dx\_dial() function performs CPA using a voice resource directly and reports results via the TDX\_CALLP event.  
+Qualification template &amp;#8212; Definitions used by the PAMD and PVD algorithms in detecting voice detection
+
+[ ](http://www.dialogic.com/support/helpweb/dxall/tn924.aspx "http://www.dialogic.com/support/helpweb/dxall/tn924.aspx")
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/2009/10/26/tuning-call-progress-analysis-cpa-templates-for-dialogic-jct-dm3-and-host-media-processing-hmp-based-boards/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

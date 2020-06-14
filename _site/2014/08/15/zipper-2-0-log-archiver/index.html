@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Log archiver tool – Zipper – New features | Your awesome title</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Log archiver tool – Zipper – New features" />
+<meta name="author" content="lakshmikanth" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<link rel="canonical" href="http://localhost:4000/2014/08/15/zipper-2-0-log-archiver/" />
+<meta property="og:url" content="http://localhost:4000/2014/08/15/zipper-2-0-log-archiver/" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-08-15T18:29:58+05:30" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2014/08/15/zipper-2-0-log-archiver/"},"@type":"BlogPosting","url":"http://localhost:4000/2014/08/15/zipper-2-0-log-archiver/","headline":"Log archiver tool – Zipper – New features","dateModified":"2014-08-15T18:29:58+05:30","datePublished":"2014-08-15T18:29:58+05:30","author":{"@type":"Person","name":"lakshmikanth"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a><a class="page-link" href="/books.html">Books</a><a class="page-link" href="/cloud-computing.html">Cloud Computing,What is it?</a><a class="page-link" href="/downloads.html">Downloads</a><a class="page-link" href="/genesys-main.html">Genesys</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Log archiver tool &amp;#8211; Zipper &amp;#8211; New features</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-08-15T18:29:58+05:30" itemprop="datePublished">Aug 15, 2014
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">lakshmikanth</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Last year, I wrote <a title="Zipper– Log Archiver tool" href="http://www.lakshmikanth.com/zipper-log-archiver-tool/" target="_blank" rel="noopener noreferrer">Zipper</a>, a log archiver utility tool to save log files in compressed format (zip). Thanks for all your feedback comments and suggestions for more features.</p>
+
+<p>I picked two common requests from the list, which was as below</p>
+
+<ul>
+  <li>Scheduling functionality</li>
+  <li>Use 7z format than zip format for compression</li>
+</ul>
+
+<p>I am happy to inform you that next version of Zipper is now available (Download link below)</p>
+
+<h2 id="7z-format">7z Format</h2>
+
+<hr />
+
+<p>Currently, 7z format uses high level compression. I choose to integrate it using 7z command line utility for the following reasons</p>
+
+<ul>
+  <li>Integrating 7z using LZMA SDK time consuming process</li>
+  <li>With command line utility, it is easy to support future versions of 7zip as we just need to replace file</li>
+</ul>
+
+<p>Results are clear and 7z format wins. Amazingly, it was able to compress 20 MB log file into 964 KB (screenshot below), which will translate into huge savings in disk space. Just like me, most of you will be using accessing server in WAN and no need to explain time savings in copying file into local system for analysis 🙂</p>
+
+<p><a href="http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Compressed.png"><img class="aligncenter wp-image-2791 size-full" src="http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Compressed.png" alt="Compression difference between 7z and zip format" width="685" height="160" srcset="http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Compressed.png 685w, http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Compressed-300x70.png 300w" sizes="(max-width: 685px) 100vw, 685px" /></a></p>
+
+<h2 id="scheduler"> Scheduler</h2>
+
+<hr />
+
+<p>In previous version of zipper application, we relied on windows task scheduler. Though, it worked fine but it created dependency on user accounts and some of you reported issues around password expiration, user permissions etc.</p>
+
+<p>In this version,  zipper uses inbuilt scheduler functionality using <a title="Quartz Scheduler" href="http://www.quartz-scheduler.net/" target="_blank" rel="noopener noreferrer">quartz scheduler</a>. You can use cron expression to schedule zipper functionality. <a href="http://www.cronmaker.com/" title="CronMaker">CronMaker</a> is an excellent tool to generate cron expressions and in the web site, simply enter your requirements to generate cron expression</p>
+
+<p>Here are few examples below</p>
+
+<p>[table id=1 /]</p>
+
+<h2 id="installation-and-configuration">Installation and Configuration</h2>
+
+<hr />
+
+<p>Zipper is simple standard windows installer. Just download and setup.exe to install zipper application.</p>
+
+<p>To configure zipper application, refer to this <a title="Zipper– Log Archiver tool" href="http://www.lakshmikanth.com/zipper-log-archiver-tool/" target="_blank" rel="noopener noreferrer">post</a>  and to configure zipper as windows service, run ‘install.bat’ from the installation directory and successful installation of windows service is shown below for reference</p>
+
+<p><a href="http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Install.png"><img class="aligncenter wp-image-2911 size-full" src="http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Install.png" alt="Zipper 2.0 Install Sucess Screen" width="709" height="417" srcset="http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Install.png 709w, http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Install-300x176.png 300w" sizes="(max-width: 709px) 100vw, 709px" /></a></p>
+
+<p>Similarly, run ‘uninstall.bat’ to uninstall from windows services</p>
+
+<p><a href="http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Uninstall.png"><img class="aligncenter wp-image-2921 size-full" src="http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Uninstall.png" alt="Zipper 2.0 Uninstall success" width="613" height="370" srcset="http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Uninstall.png 613w, http://localhost/newlakshmikanth3/wp-content/uploads/2014/08/Uninstall-300x181.png 300w" sizes="(max-width: 613px) 100vw, 613px" /></a></p>
+
+<p><strong>Note: </strong>To install or uninstall windows service, you should run ‘command’ prompt with Administrator privileges</p>
+
+<h6 id="download-latest-version-of-zipper-here"><span style="color: #000000;"><strong>Download latest version of zipper<span style="color: #993300;"> <a title="Download" href="https://app.box.com/s/cegdgm3pr4jntma1xz1z" target="_blank" rel="noopener noreferrer"><span style="color: #993300;">here</span></a></span></strong></span></h6>
+
+  </div><a class="u-url" href="/2014/08/15/zipper-2-0-log-archiver/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

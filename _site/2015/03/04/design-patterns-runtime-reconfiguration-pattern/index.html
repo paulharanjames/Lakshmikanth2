@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Design Patterns – Runtime Reconfiguration Pattern | Your awesome title</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Design Patterns – Runtime Reconfiguration Pattern" />
+<meta name="author" content="lakshmikanth" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<link rel="canonical" href="http://localhost:4000/2015/03/04/design-patterns-runtime-reconfiguration-pattern/" />
+<meta property="og:url" content="http://localhost:4000/2015/03/04/design-patterns-runtime-reconfiguration-pattern/" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-03-05T03:38:19+05:30" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2015/03/04/design-patterns-runtime-reconfiguration-pattern/"},"@type":"BlogPosting","url":"http://localhost:4000/2015/03/04/design-patterns-runtime-reconfiguration-pattern/","headline":"Design Patterns – Runtime Reconfiguration Pattern","dateModified":"2015-03-05T03:38:19+05:30","datePublished":"2015-03-05T03:38:19+05:30","author":{"@type":"Person","name":"lakshmikanth"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a><a class="page-link" href="/books.html">Books</a><a class="page-link" href="/cloud-computing.html">Cloud Computing,What is it?</a><a class="page-link" href="/downloads.html">Downloads</a><a class="page-link" href="/genesys-main.html">Genesys</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Design Patterns &amp;#8211; Runtime Reconfiguration Pattern</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2015-03-05T03:38:19+05:30" itemprop="datePublished">Mar 5, 2015
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">lakshmikanth</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Currently, I am in the process of design and development of custom server application to generate contact center intraday reports on regular intervals and send it to operations team. As with any other contact center servers, this is critical for business to run their operations. I was working on Microsoft Azure for cloud based services and always want to bring cloud benefits – however small it is – to enterprise customers.</p>
+
+<p>One of the main benefit for cloud based solution is ‘always on’ and ‘Runtime Reconfiguration Pattern’ is used to reduce downtime for this.</p>
+
+<h3 id="problem">Problem</h3>
+
+<hr />
+
+<p>###</p>
+
+<ul>
+  <li>Agents can be added or removed from reporting group at any time</li>
+  <li>Queues can be added or removed from reporting group at any time</li>
+  <li>Ability to support new reporting templates</li>
+  <li>Ability to change report name and file format</li>
+</ul>
+
+<p>All these changes to be applied while the application is running and should not impact other application functionalities. ‘Runtime Reconfiguration Pattern’ is the perfect solution here.</p>
+
+<h3 id="pattern-overview">Pattern overview</h3>
+
+<hr />
+
+<p>###</p>
+
+<p>Typically, hosting infrastructure sends notifications for any configuration changes. Application will examine the change and apply them to relevant components. From this point onwards, application will use new configuration value in the application.</p>
+
+<p>More details about this pattern can be found from Microsoft site <a href="https://msdn.microsoft.com/en-us/library/dn589785.aspx" target="_blank" rel="noopener noreferrer">here</a></p>
+
+<div style="width: 591px" class="wp-caption alignnone">
+  <img class="" src="https://i-msdn.sec.s-msft.com/dynimg/IC709510.png" alt="" width="581" height="200" />
+  
+  <p class="wp-caption-text">
+    Runtime Reconfiguration Pattern
+  </p>
+</div>
+
+<h3 id="implementation">Implementation</h3>
+
+<hr />
+
+<p>###</p>
+
+<p>Runtime Reconfiguration Pattern is used heavily by Genesys to support dynamic changes. For example, any changes made by Genesys CME or Administrator are applied dynamically to relevant servers using notifications.</p>
+
+<p>In my application, I used Genesys Platform SDK – Configuration Server to get notifications and handled changes. Here are design implementation details</p>
+
+<ul>
+  <li>Store only configuration server details locally</li>
+  <li>On startup, connect to configuration server and retrieve details from application options</li>
+  <li>Subscribe for change notifications from Configuration Server</li>
+  <li>Application is running now</li>
+  <li>When application configuration is changed using CME or Genesys Administrator, Configuration Server sends notification to application</li>
+  <li>Changes are examined and applied to relevant modules within the application</li>
+</ul>
+
+<h3 id="when-to-use-this-in-genesys-environment">When to use this in Genesys environment</h3>
+
+<hr />
+
+<p>###</p>
+
+<p>I strongly recommend to use this pattern for server applications only as it uses single connection with configuration server. For client applications like Softphone, it is not recommended as it will use one connection for each instance, which will increase load on Configuration server and severely impacts operation when it crosses 2K connection.</p>
+
+<p>If it is absolutely required, I suggest developing custom server application to support this. I will cover the details for this in my next post.</p>
+
+  </div><a class="u-url" href="/2015/03/04/design-patterns-runtime-reconfiguration-pattern/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

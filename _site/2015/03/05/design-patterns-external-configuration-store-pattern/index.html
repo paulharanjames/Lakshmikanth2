@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Design Patterns – External Configuration Store Pattern | Your awesome title</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Design Patterns – External Configuration Store Pattern" />
+<meta name="author" content="lakshmikanth" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<link rel="canonical" href="http://localhost:4000/2015/03/05/design-patterns-external-configuration-store-pattern/" />
+<meta property="og:url" content="http://localhost:4000/2015/03/05/design-patterns-external-configuration-store-pattern/" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-03-05T17:22:01+05:30" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2015/03/05/design-patterns-external-configuration-store-pattern/"},"@type":"BlogPosting","url":"http://localhost:4000/2015/03/05/design-patterns-external-configuration-store-pattern/","headline":"Design Patterns – External Configuration Store Pattern","dateModified":"2015-03-05T17:22:01+05:30","datePublished":"2015-03-05T17:22:01+05:30","author":{"@type":"Person","name":"lakshmikanth"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a><a class="page-link" href="/books.html">Books</a><a class="page-link" href="/cloud-computing.html">Cloud Computing,What is it?</a><a class="page-link" href="/downloads.html">Downloads</a><a class="page-link" href="/genesys-main.html">Genesys</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Design Patterns &amp;#8211; External Configuration Store Pattern</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2015-03-05T17:22:01+05:30" itemprop="datePublished">Mar 5, 2015
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">lakshmikanth</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>In my previous post, I discussed about <a href="http://www.lakshmikanth.com/design-patterns-runtime-reconfiguration-pattern/" title="Design Patterns – Runtime Reconfiguration Pattern">‘Runtime Reconfiguration Pattern’ </a> and how it can be applied in Genesys environment.It is easy to implement ‘Runtime Reconfiguration Pattern’ in Genesys and realize benefits for server applications. For client applications,  I recommend to use ‘External Configuration Store’ pattern along with ‘Runtime Reconfiguration’ to improve availability and scalability.</p>
+
+<h3 id="problem">Problem</h3>
+
+<hr />
+
+<p>###</p>
+
+<p>The majority of application runtime environments include configuration information that is held in files deployed with the application, located within the application folders. In some cases it is possible to edit these files to change the behavior of the application after it has been deployed. However, in many cases, changes to the configuration require the application to be redeployed, resulting in unacceptable downtime and additional administrative overhead. For example, if you want to change log folder location for Softphone and you need to make changes in all agent desktops.</p>
+
+<p>Local configuration files also limit the configuration to a single application, whereas in some scenarios it would be useful to share configuration settings across multiple applications. Examples include database connection strings, Phone book, Transfer directory etc and storage used by a related set of applications.</p>
+
+<p>In addition, updates to applications and components may require changes to configuration schemas.</p>
+
+<h3 id="solution">Solution</h3>
+
+<hr />
+
+<p>Most of the problems can be addressed by using Configuration Server to store information. On large contact centers with 2K+ agents,  it overloads configuration server and any load on core servers should be avoided.</p>
+
+<h3 id="solution-1--use-configuration-server-proxy">Solution #1 : Use Configuration Server Proxy</h3>
+
+<hr />
+
+<p>Straightforward solution. Install Configuration Server Proxy and direct client application traffic to proxy</p>
+
+<h3 id="solution-2--use-custom-application">Solution #2 : Use custom application</h3>
+
+<hr />
+
+<p>Use custom application to store and provide configuration data as below</p>
+
+<div id="attachment_5281" style="width: 797px" class="wp-caption aligncenter">
+  <a href="http://localhost/newlakshmikanth3/wp-content/uploads/2015/03/External-Configuration-Store.png"><img aria-describedby="caption-attachment-5281" class="wp-image-5281 size-full" src="http://localhost/newlakshmikanth3/wp-content/uploads/2015/03/External-Configuration-Store.png" alt="External Configuration Store" width="787" height="328" srcset="http://localhost/newlakshmikanth3/wp-content/uploads/2015/03/External-Configuration-Store.png 787w, http://localhost/newlakshmikanth3/wp-content/uploads/2015/03/External-Configuration-Store-300x125.png 300w, http://localhost/newlakshmikanth3/wp-content/uploads/2015/03/External-Configuration-Store-768x320.png 768w" sizes="(max-width: 787px) 100vw, 787px" /></a>
+  
+  <p id="caption-attachment-5281" class="wp-caption-text">
+    External Configuration Store Pattern
+  </p>
+</div>
+
+<p> </p>
+
+<p>My personal preference is to use custom application to store configuration data for the following reasons</p>
+
+<ul>
+  <li>Flexibility to store different types of data like collections, XML document etc. Particularly useful, if you want to store phone book, personal speed dials etc.</li>
+  <li>Easy to store multiple versions of configuration settings. For example, user may want to use different set of transfer directory numbers for holiday period only</li>
+  <li>Implement business rules – Depending on user, machine, site or IP address range allows you to present different configuration settings</li>
+  <li>Can be used as load balancing solution. In many cases – almost in all scenarios, client applications are configured to use dedicated instance of server applications like CS Proxy or Stat Server. For example, when agent logs in,  custom application can provide CS proxy details from pool instead of dedicated instance, which increases availability and performance</li>
+</ul>
+
+<p>In my next post, I will cover another interesting pattern ‘Cache Aside’ to improve application performance.</p>
+
+  </div><a class="u-url" href="/2015/03/05/design-patterns-external-configuration-store-pattern/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
